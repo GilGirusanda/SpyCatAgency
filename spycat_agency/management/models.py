@@ -39,7 +39,7 @@ class Target(models.Model):
         MaxLengthValidator(100)
     ])
     country = models.CharField(max_length=100, validators=[
-        MinLengthValidator(3),
+        MinLengthValidator(2),
         MaxLengthValidator(100)
     ])
     notes = models.TextField(blank=True)
