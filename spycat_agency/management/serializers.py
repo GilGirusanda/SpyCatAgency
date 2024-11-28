@@ -21,14 +21,14 @@ class CatSerializer(serializers.ModelSerializer):
 class TargetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Target
-        fields = '__all__'
+        fields = ['name', 'country', 'notes', 'complete']
 
 class MissionSerializer(serializers.ModelSerializer):
     targets = TargetSerializer(many=True)
 
     class Meta:
         model = Mission
-        fields = ['id', 'cat', 'complete', 'targets']
+        fields = ['cat', 'complete', 'targets']
 
     def create(self, validated_data):
         targets_data = validated_data.pop('targets')
